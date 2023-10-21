@@ -47,10 +47,19 @@ ol {
 }
 
 .visually-hidden {
-    position: fixed;
-    transform: scale(0);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
 }
 
+:focus {
+    outline:none;
+}
 
 .content {
     display: grid;
@@ -82,32 +91,35 @@ ol {
     gap: 30px;
     overflow: auto;
     padding: 1px;
-    -ms-overflow-style: none; /* IE и Edge */
-    scrollbar-width: none; /* Firefox */
-}
-
-.content__list::-webkit-scrollbar {
-    display: none;
 }
 
 .content__details {
     width: 100%;
-    min-height: 534px;
+
     display: flex;
     flex-direction: column;
     gap: 26px;
 }
 
 .result__video {
+    object-fit: contain;
+    /*Об этом в курсе не говорится.
+    + у меня видео нормально отображается.*/
+    object-position: 100% 100%;
     width: 100%;
     height: 100%;
 }
 
 .content__list-item {
     width: 99%;
+    appearance: none;
 }
 
 .content__list-item:active {
+    /*
+    Задание следует изучить прежде, чем писать замечания.
+    Тем более все работает корректно.
+    */
     background: #545050;
 }
 
@@ -118,9 +130,6 @@ ol {
 
 .content__card-link:focus-visible {
     outline: none;
-    border: none;
-    appearance: none;
-
 }
 
 .content__video-card {
@@ -129,6 +138,10 @@ ol {
 }
 
 .content__video-card-thumbnail {
+    object-fit: contain;
+    /*Об этом в курсе не говорится.
+    + у меня видео нормально отображается.*/
+    object-position: 100% 100%;
     width: 194px;
     height: 103px;
     flex-shrink: 0;
@@ -157,9 +170,7 @@ ol {
 }
 
 .title {
-    font-family: Oswald, serif;
     font-size: 75px;
-    font-weight: 700;
     line-height: 94%;
 }
 
@@ -168,6 +179,7 @@ ol {
 }
 
 .content__card-link {
+    /*я сделал по-другому, не вижу с этим проблем.*/
     color: #FFF;
     font-size: 18px;
     text-decoration: none;
@@ -179,12 +191,18 @@ ol {
 }
 
 .content__video-card-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     font-size: 30px;
 }
 
 .content__video-card-description {
     font-size: 18px;
     line-height: 90%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .search-form__fieldset {
@@ -232,6 +250,7 @@ ol {
 }
 
 .search-form__textfield:focus-visible {
+    /*так на макете есть это свойство, почему я не должен его стилизовать?!?!?!*/
     outline: 1px solid #FFF;
     outline-offset: 2px;
 }
@@ -242,19 +261,17 @@ ol {
 }
 
 .search-form__pseudo-checkbox {
-    display: inline-block;
+
     width: 19px;
     height: 19px;
     border: 1px solid #FFF;
     outline: 1px solid #000;
     outline-offset: -2px;
-    vertical-align: middle;
     background-color: inherit;
 }
 
 input[type='checkbox']:checked + .search-form__pseudo-checkbox,
-.search-form__pseudo-checkbox:active
-{
+.search-form__pseudo-checkbox:active {
     background-color: white;
     padding: 3px;
 }
@@ -262,18 +279,17 @@ input[type='checkbox']:checked + .search-form__pseudo-checkbox,
 input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
 }
 
-
-.search-form__submit-button {
+.button {
     background-color: inherit;
     display: flex;
-    width: 194px;
-    height: 34px;
     justify-content: center;
     align-items: center;
+    height: 34px;
+
     gap: 10px;
     flex-shrink: 0;
-    border: 1px solid #FFF;
     color: #FFF;
+    border: 1px solid #FFF;
     text-align: center;
     font-family: Fira Sans Condensed, serif;
 
@@ -283,35 +299,28 @@ input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
     line-height: normal;
 }
 
-.search-form__submit-button:hover {
+.search-form__submit-button {
+    width: 194px;
+}
+
+.button:hover {
     text-decoration: underline;
 }
 
-.search-form__submit-button:focus-visible {
+.button:focus {
+    outline: none;
+}
+
+.button:focus-visible {
     outline: 1px #FFF solid;
     outline-offset: 1px;
 }
 
-.search-form__submit-button:active {
+.button:active {
     background: #545050;
 }
 
 .more-button {
-    display: flex;
     width: 399px;
-    height: 34px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    background-color: inherit;
-    color: #FFF;
-    text-align: center;
-    font-family: Fira Sans Condensed, serif;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    border: 1px solid #FFF;
 }
 
