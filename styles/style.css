@@ -161,7 +161,6 @@ ol {
     font-size: 75px;
     font-weight: 700;
     line-height: 94%;
-
 }
 
 .content__accent {
@@ -236,7 +235,6 @@ ol {
     outline: 1px solid #FFF;
     outline-offset: 2px;
 }
-
 
 .search-form__submit-button,
 .search-form__label {
@@ -315,6 +313,5 @@ input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
     font-weight: 700;
     line-height: normal;
     border: 1px solid #FFF;
-
 }
 
