@@ -84,12 +84,15 @@ ol {
 }
 
 .content__list {
+    overflow-x: hidden;
+    overflow-y: auto;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     height: 298px;
     gap: 30px;
-    overflow: auto;
+    /*overflow: auto;*/
     padding: 1px;
 }
 
@@ -113,6 +116,7 @@ ol {
     appearance: none;
 }
 
+.content__card-link_current,
 .content__card-link:active {
     background: #545050;
 }
